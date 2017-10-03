@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 /// <summary>
-/// Create circle object in scene view. Called via menu [GameObject] -> [3D Object] -> [Circle].
+/// Create circle object in scene view. Called via menu [GameObject] -> [3D Object] -> [Circle...].
 /// </summary>
 public class CreateCircleMenu : EditorWindow
 {
@@ -23,7 +23,7 @@ public class CreateCircleMenu : EditorWindow
     /// <summary>Determine how thick the circle is.</summary>
     string m_width = "0.3";
 
-    [MenuItem("GameObject/3D Object/Circle")]
+    [MenuItem("GameObject/3D Object/Circle...")]
     public static void ShowDialog()
     {
         EditorWindow.GetWindow<CreateCircleMenu>("Circle Settings");

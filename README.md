@@ -1,21 +1,30 @@
-# ripple_lazer_demo
-Demo for describing how to implement ripple lasers like in Salamander (Konami, 1986)
-
-Line Renderer is involved to draw circle, which is desribed in the following youtube movie:
+# Creating circle object in Unity
+I found many people wanted to create circle object like donut. So I tried to create Unity Editor Extention which creates circle object using Line Renderer.
+The implementation is base on the following youtube movie:
 
 [Draw Circle and place object on circle using Line Renderer](https://www.youtube.com/watch?v=BoDwchoM9Ic)
 
-## Quick Start
-1. Clone/download this repository.
+Plus, this project contains a sample mini-game in which a player shoots ripple laser which is inspired from Salamander (Konami, 1986).
+
+## How to use
+1. Import Assets/Editor/CreateCircleMenu.cs into your project.
+1. Select [GameObject] -> [3D Object] -> [Circle...] from menu. It will show a dialog.
+1. Click "Create" button in the dialog.
+1. "Circle" object will be created in the scene.
+
+## How to play demo
 1. Open "default" scene and run.
 1. Left click to fire.
 1. Use WASD to move around while mashing left click.
-1. Tweak /Assets/Resources/Prefabs/Circle.  Select the prefab in Project window and change following values in Inspector:
-  - Drawing Circle Controller
-    - Vertex Count - The bigger values, the smoother circle
-    - Line Width - How thick the circle
+1. Drop all blocks from the platform to clear game.
+1. Tweak /Assets/Demo/Prefabs/Bullet.  Select the prefab in Project window and change following values in Inspector:
+  - Line Renderer
+    - Width - How thick the circle
   - Bullet Controller
     - Distance - How far the bullet goes
     - Speed - How fast the bullet goes
-    - Start Radius - How big the circle on fire
-    - End Radius - How big the circle when bullet goes Distance.
+    - Start Scale - How big the circle on fire
+    - End Scale - How big the circle when bullet goes Distance.
+
+## Web Demo
+http://bboydaisuke.wp.xdomain.jp/2017/10/03/editor-extension-making-circle-object-with-unity/

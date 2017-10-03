@@ -50,7 +50,7 @@ public class CreateCircleMenu : EditorWindow
         {
             try
             {
-                CreateCircleObject(int.Parse(m_radius), int.Parse(m_vertexCount), float.Parse(m_width), m_selectionGrid);
+                CreateCircleObject(float.Parse(m_radius), int.Parse(m_vertexCount), float.Parse(m_width), m_selectionGrid);
             }
             catch (System.Exception e)
             {
@@ -66,7 +66,7 @@ public class CreateCircleMenu : EditorWindow
     /// <param name="vertexCount"></param>
     /// <param name="width"></param>
     /// <param name="axis">Which direction the circle lies. Should be 0, 1, or 2.</param>
-    private void CreateCircleObject(int radius, int vertexCount, float width, int axis)
+    private void CreateCircleObject(float radius, int vertexCount, float width, int axis)
     {
         GameObject go = new GameObject("Circle");
         LineRenderer lineRenderer = go.AddComponent<LineRenderer>();

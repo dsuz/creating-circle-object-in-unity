@@ -1,5 +1,5 @@
 # Creating circle object in Unity
-I found many people wanted to create circle object like a donut. So I tried to create Unity Editor Extention which creates circle object using Line Renderer.
+I found many people wanted to create circle object like a donut. So I tried to create Unity Editor Extension which creates circle object using Line Renderer.
 The implementation is base on the following youtube movie:
 
 [Draw Circle and place object on circle using Line Renderer](https://www.youtube.com/watch?v=BoDwchoM9Ic)

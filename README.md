@@ -1,10 +1,10 @@
 # Creating circle object in Unity
-I found many people wanted to create circle object like donut. So I tried to create Unity Editor Extention which creates circle object using Line Renderer.
+I found many people wanted to create circle object like a donut. So I tried to create Unity Editor Extention which creates circle object using Line Renderer.
 The implementation is base on the following youtube movie:
 
 [Draw Circle and place object on circle using Line Renderer](https://www.youtube.com/watch?v=BoDwchoM9Ic)
 
-Plus, this project contains a sample mini-game in which a player shoots ripple laser which is inspired from Salamander (Konami, 1986).
+Plus, this project contains a sample mini-game in which a player shoots ripple lasers which is inspired from Salamander (Konami, 1986).
 
 ## How to use
 1. Import Assets/Editor/CreateCircleMenu.cs into your project.

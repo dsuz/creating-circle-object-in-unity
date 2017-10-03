@@ -7,20 +7,19 @@ using UnityEngine;
 /// Fire() を呼ぶと、弾の大きさを変化させながら、指定した距離を指定した速度で飛ぶ。
 /// 指定した距離を飛んだら、弾は消える。
 /// </summary>
-[RequireComponent(typeof(DrawingCircleController))]
 public class BulletController : MonoBehaviour
 {
     /// <summary>弾が飛ぶ距離。この距離を飛んだら弾は消える</summary>
     [SerializeField] private float m_distance = 10f;
     
     /// <summary>弾が飛ぶ速度</summary>
-    [SerializeField] private float m_speed = 10f;
+    [SerializeField] private float m_speed = 20f;
 
     /// <summary>弾が発射された時の最初の大きさ</summary>
-    [SerializeField] private float m_startRadius = 0.15f;
+    [SerializeField] private float m_startScale = 1f;
     
     /// <summary>弾が消える直前の最後の大きさ。</summary>
-    [SerializeField] private float m_endRadius = 0.3f;
+    [SerializeField] private float m_endScale = 1f;
     
     /// <summary>弾が発射された時間</summary>
     private float m_startTime;
@@ -34,15 +33,11 @@ public class BulletController : MonoBehaviour
     /// <summary>弾が最後に到達する場所。ここに向かって飛び、ここに来たら消える</summary>
     private Vector3 m_endPosition;
     
-    /// <summary>弾の大きさを操作するための弾に追加された DrawingCircleController クラス</summary>
-    private DrawingCircleController m_circle;
-
     private void Start()
     {
         m_startTime = Time.time;
         m_startPosition = transform.position;
-        m_circle = GetComponent<DrawingCircleController>();
-        m_circle.m_radius = m_startRadius;
+        transform.localScale = new Vector3(m_startScale, m_startScale, m_startScale);
     }
 
     /// <summary>
@@ -63,7 +58,8 @@ public class BulletController : MonoBehaviour
             float distCovered = (Time.time - m_startTime) * m_speed;
             float fracJourney = distCovered / m_journeyLength;
             transform.position = Vector3.Lerp(m_startPosition, m_endPosition, fracJourney);
-            m_circle.m_radius = Mathf.Lerp(m_startRadius, m_endRadius, fracJourney);
+            float scale = Mathf.Lerp(m_startScale, m_endScale, fracJourney);
+            transform.localScale = new Vector3(scale, scale, scale);
         }
 
         if (transform.position.Equals(m_endPosition)) Destroy(this.gameObject);

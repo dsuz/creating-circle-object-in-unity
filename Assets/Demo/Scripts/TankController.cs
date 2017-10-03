@@ -21,8 +21,8 @@ public class TankController : MonoBehaviour
     /// <summary>弾が発射されるポイント</summary>
     [SerializeField] private GameObject m_muzzle;
 
-    /// <summary>弾のプレハブのパス。弾のプレハブは BulletController クラスが追加されていなければならない。</summary>
-    [SerializeField] private string m_bulletPrefabPath = "Prefabs/Circle";
+    /// <summary>弾のプレハブ</summary>
+    [SerializeField] private BulletController m_bulletController;
 
     void Start () {
         m_charCtrl = GetComponent<CharacterController>();
@@ -43,10 +43,8 @@ public class TankController : MonoBehaviour
     /// </summary>
     void Fire()
     {
-        GameObject bulletPrefab = (GameObject)Resources.Load(m_bulletPrefabPath);
 
-        var bullet = Instantiate(bulletPrefab, m_muzzle.transform.position, m_muzzle.transform.rotation);
-        bullet.transform.Rotate(90f, 0, 0); // そのままだと角度がおかしいので X軸を90度回す
+        var bullet = Instantiate(m_bulletController, m_muzzle.transform.position, transform.rotation);
         bullet.GetComponent<BulletController>().Fire(transform.forward);
     }
 }

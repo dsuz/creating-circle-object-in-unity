@@ -30,12 +30,12 @@ public class TankController : MonoBehaviour
 	
 	void Update () {
         /* 入力に応じて移動・回転・発射する */
-        float vertical = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis("Vertical");
-        float horizontal = UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
 
         if (vertical != 0) m_charCtrl.SimpleMove(vertical * transform.forward * m_MoveSpeed);
         if (horizontal != 0) transform.Rotate(0, horizontal * m_RotateSpeed, 0);
-        if (UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager.GetButtonDown("Fire1")) Fire();
+        if (Input.GetButtonDown("Fire1")) Fire();
 	}
 
     /// <summary>
@@ -43,6 +43,7 @@ public class TankController : MonoBehaviour
     /// </summary>
     void Fire()
     {
+
         var bullet = Instantiate(m_bulletController, m_muzzle.transform.position, transform.rotation);
         bullet.GetComponent<BulletController>().Fire(transform.forward);
     }

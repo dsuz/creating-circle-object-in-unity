@@ -27,14 +27,18 @@ public class TankController : MonoBehaviour
     void Start () {
         m_charCtrl = GetComponent<CharacterController>();
 	}
-	
+
 	void Update () {
         /* 入力に応じて移動・回転・発射する */
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
 
         if (vertical != 0) m_charCtrl.SimpleMove(vertical * transform.forward * m_MoveSpeed);
-        if (horizontal != 0) transform.Rotate(0, horizontal * m_RotateSpeed, 0);
+        if (horizontal != 0)
+        {
+            if (vertical >= 0) transform.Rotate(0, horizontal * m_RotateSpeed, 0);
+            else transform.Rotate(0, -1 * horizontal * m_RotateSpeed, 0);
+        }
         if (Input.GetButtonDown("Fire1")) Fire();
 	}
 
